@@ -5,7 +5,7 @@ def main():
     cn = colored("cn", 'blue', attrs=['reverse', 'blink'])
     rp = colored("rp", 'yellow', attrs=['reverse', 'blink'])
 
-    cprint("Hello! what would you like to do?",'cyan')
+    cprint("Hello! what would you like to do?", 'cyan')
     cprint("Create New List: " + cn, 'blue')
     cprint("Read previous List: " + rp, 'yellow')
     usr_input = input()
@@ -13,13 +13,13 @@ def main():
     if usr_input.lower() == "cn":
         with open("itemList.txt", 'w'):
             pass
-        listAmount = input("How many items do you have?")
-        listAmount = int(listAmount)
-        listCounter = 0
-        while listCounter < listAmount:
+        list_amount = input("How many items do you have?")
+        list_amount = int(list_amount)
+        list_counter = 0
+        while list_counter < list_amount:
             list_inp = input()
             item_list.insert(0, list_inp)
-            listCounter += 1
+            list_counter += 1
 
         with open("itemList.txt", 'a', encoding="utf-8") as listFile:
             for items in range(len(item_list)):
@@ -30,9 +30,9 @@ def main():
 
     elif usr_input.lower() == "rp":
         with open("itemList.txt", "r") as lists:
-            itemsInList = lists.readlines()
-            newlist = [x[:-1] for x in itemsInList]
-            for i in newlist:
+            items_in_list = lists.readlines()
+            new_list = [x[:-1] for x in items_in_list]
+            for i in new_list:
                 cprint(i, 'cyan')
 
     else:
