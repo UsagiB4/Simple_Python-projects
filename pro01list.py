@@ -1,4 +1,6 @@
 from termcolor import *
+import os
+os.system('color')
 
 
 def main():
