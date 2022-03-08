@@ -10,18 +10,18 @@ def main():
     cprint("Hello! what would you like to do?", 'cyan')
     cprint("Create New List: " + cn, 'blue')
     cprint("Read previous List: " + rp, 'yellow')
+    cprint("type 'done' to exit")
     usr_input = input()
     item_list = []
     if usr_input.lower() == "cn":
         with open("itemList.txt", 'w'):
             pass
-        list_amount = input("How many items do you have?")
-        list_amount = int(list_amount)
-        list_counter = 0
-        while list_counter < list_amount:
+        while True:
             list_inp = input()
-            item_list.insert(0, list_inp)
-            list_counter += 1
+            if list_inp.lower() == "done":
+                break
+            else:
+                item_list.insert(0, list_inp)
 
         with open("itemList.txt", 'a', encoding="utf-8") as listFile:
             for items in range(len(item_list)):
